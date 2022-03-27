@@ -23,7 +23,7 @@
                         materialDesign:HintAssist.Hint="Mã môn học"
                         IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Height="41" Margin="10,10,10,0" />
 
-                    <TextBox x:Name="txttenmh"
+                    <TextBox x:Name="txttenkhoa"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
@@ -32,7 +32,7 @@
                         materialDesign:HintAssist.Hint="Tên môn học"
                         IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Height="41" Margin="10,57,10,0" />
 
-                    <TextBox x:Name="txtsotiet"
+                    <TextBox x:Name="txtdienthoai"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Center"
                         AcceptsReturn="True"
@@ -41,9 +41,8 @@
                         materialDesign:HintAssist.Hint="Số tiết"
                         IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" 
                         Height="42" 
-                        Margin="10,0,10,0" PreviewTextInput="txtsotiet_PreviewTextInput" />
-
-                    <TextBox x:Name="txtmakhoa"
+                        Margin="10,0,10,0" PreviewTextInput="txtdienthoai_PreviewTextInput" />
+                    <TextBox x:Name="txttenkhoamoi"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
