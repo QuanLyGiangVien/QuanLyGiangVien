@@ -61,13 +61,8 @@
                     </StackPanel>
 
                     <StackPanel x:Name="github" Grid.Row="3" VerticalAlignment="Bottom" Orientation="Horizontal" Width="200" Margin="0 0 0 20">
-                        <Ellipse Width="40" Height="40" Margin="10 0 0 0">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Avatars/Avatar.png"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
                         <StackPanel Orientation="Vertical" Margin="0 0 0 0"/>
-                        <Label x:Name="lblgithub" Content="Trần Nguyễn Tuấn Anh&#10;https://github.io/dopaemon" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold"/>
+                        <Label x:Name="lblgithub" Content="Nhóm 10&#xA;" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Width="288"/>
                     </StackPanel>
                 </Grid>
             </Border>

@@ -303,5 +303,10 @@ namespace QUANLYGIANGVIEN.Pages
             var textBox = sender as TextBox;
             e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
+
+        private void cbchucnang_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -10,9 +10,9 @@
              d:DesignHeight="570" d:DesignWidth="770">
     <Border CornerRadius="10" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
-            <Ellipse Margin="30,19,610,422">
+            <Ellipse Margin="30,19,582,398">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Assets/Avatars/logoKTKTLD.jpg"/>
+                    <ImageBrush ImageSource="/Assets/Avatars/dlu.jpg"/>
                 </Ellipse.Fill>
             </Ellipse>
             <materialDesign:Card Margin="30,192,520,320" UniformCornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}">
@@ -50,9 +50,9 @@
 
                 </Grid>
             </materialDesign:Card>
-            <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Trường Cao Đẳng Kinh Tế Kỹ Thuật Lâm Đồng" HorizontalAlignment="Left" Margin="232,19,0,0" VerticalAlignment="Top" FontSize="24"/>
-            <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Lớp: T3K21 - 11D" HorizontalAlignment="Left" Margin="583,60,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Tên: Trần Nguyễn Tuấn Anh" HorizontalAlignment="Left" Margin="485,93,0,0" VerticalAlignment="Top" FontSize="20"/>
+            <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Trường Đại Học Đà Lạt" HorizontalAlignment="Left" Margin="474,13,0,0" VerticalAlignment="Top" FontSize="24"/>
+            <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Lớp: CTK47A" HorizontalAlignment="Left" Margin="607,57,0,0" VerticalAlignment="Top" FontSize="20"/>
+            <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Đề Tài Quản Lý Giảng Viên Nhóm 10" HorizontalAlignment="Left" Margin="385,94,0,0" VerticalAlignment="Top" FontSize="20"/>
         </Grid>
     </Border>
 </UserControl>

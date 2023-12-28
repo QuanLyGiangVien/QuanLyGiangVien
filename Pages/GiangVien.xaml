@@ -111,7 +111,7 @@
                       FontSize="15"
                       materialDesign:HintAssist.Hint="Chức Năng"
                       materialDesign:TextFieldAssist.HasClearButton="True"
-                      Width="256" Margin="60,23,59,192">
+                      Width="256" Margin="60,23,59,192" SelectionChanged="cbchucnang_SelectionChanged">
                         <ComboBox.SelectedItem>
                             <Binding
                                   Path="SelectedValidationOutlined"
