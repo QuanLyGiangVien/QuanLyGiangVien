@@ -31,15 +31,16 @@ namespace QUANLYGIANGVIEN.Pages
         public monhoc()
         {
             InitializeComponent();
+            xemmonhoc();
             hidetextboxmoi();
             readwritetextbox(0);
             btnrun.IsEnabled = false;
         }
 
         int checkedbtn = 0;
-        SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["constr"]);
+        SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["constr"]);
 
-        private void btnc_Click(object sender, RoutedEventArgs e)
+        private void cbchucnang_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cbchucnang.SelectedIndex == 0 ||
                 cbchucnang.SelectedIndex == 1 ||
@@ -98,6 +99,10 @@ namespace QUANLYGIANGVIEN.Pages
             {
                 btnrun.IsEnabled = true;
             }
+        }
+        private void btnc_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnrun_Click(object sender, RoutedEventArgs e)

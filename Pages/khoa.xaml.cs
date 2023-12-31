@@ -31,74 +31,106 @@ namespace QUANLYGIANGVIEN.Pages
         public khoa()
         {
             InitializeComponent();
+            xemkhoa();
             hidetextboxmoi();
             readwritetextbox(0);
             btnrun.IsEnabled = false;
         }
 
         int checkedbtn = 0;
-        SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["constr"]);
+        SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["constr"]);
 
-        private void btnc_Click(object sender, RoutedEventArgs e)
+        private void cbchucnang_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cbchucnang.SelectedIndex == 0 ||
                 cbchucnang.SelectedIndex == 1 ||
                 cbchucnang.SelectedIndex == 2 ||
-                cbchucnang.SelectedIndex == 4) {
+                cbchucnang.SelectedIndex == 4)
+            {
                 hidetextboxmoi();
                 ftextbox(1);
                 checkedbtn = 1;
-            } else if (cbchucnang.SelectedIndex == 3) {
+            }
+            else if (cbchucnang.SelectedIndex == 3)
+            {
                 showtextboxmoi();
                 ftextbox(0);
                 checkedbtn = 1;
-            } else { checkedbtn = 0; }
+            }
+            else { checkedbtn = 0; }
 
-            if (cbchucnang.SelectedIndex == 0) {
+            if (cbchucnang.SelectedIndex == 0)
+            {
                 readwritetextbox(1);
                 txtthongbao.Text = "Bạn đã chọn nhập khoa";
-            } else if (cbchucnang.SelectedIndex == 1) {
+            }
+            else if (cbchucnang.SelectedIndex == 1)
+            {
                 readwritetextbox(0);
                 txtthongbao.Text = "Bạn đã chọn xem khoa";
-            } else if (cbchucnang.SelectedIndex == 2) {
+            }
+            else if (cbchucnang.SelectedIndex == 2)
+            {
                 readwritetextbox(0);
                 txtmakhoa.IsReadOnly = false;
                 txtthongbao.Text = "Bạn đã chọn xóa khoa";
-            } else if (cbchucnang.SelectedIndex == 3) {
+            }
+            else if (cbchucnang.SelectedIndex == 3)
+            {
                 readwritetextbox(0);
                 txtmakhoa.IsReadOnly = false;
                 txtthongbao.Text = "Bạn đã chọn sửa khoa";
-            } else if (cbchucnang.SelectedIndex == 4) {
+            }
+            else if (cbchucnang.SelectedIndex == 4)
+            {
                 readwritetextbox(1);
                 txtthongbao.Text = "Bạn đã chọn tìm khoa";
-            } else if (cbchucnang.SelectedIndex == -1) {
-                txtthongbao.Text = "Bạn chưa chọn chức năng"; }
+            }
+            else if (cbchucnang.SelectedIndex == -1)
+            {
+                txtthongbao.Text = "Bạn chưa chọn chức năng";
+            }
 
             if (checkedbtn == 1) { btnrun.IsEnabled = true; }
             else if (checkedbtn == 0) { btnrun.IsEnabled = true; }
         }
 
+        private void btnc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void btnrun_Click(object sender, RoutedEventArgs e)
         {
-            if (cbchucnang.SelectedIndex == 0) {
+            if (cbchucnang.SelectedIndex == 0)
+            {
                 if (String.IsNullOrEmpty(txtmakhoa.Text)) { txtthongbao.Text = "Bạn chưa nhập mã khoa"; }
                 else if (String.IsNullOrEmpty(txttenkhoa.Text)) { txtthongbao.Text = "Bạn chưa nhập tên khoa"; }
                 else if (String.IsNullOrEmpty(txtdienthoai.Text)) { txtthongbao.Text = "Bạn chưa nhập điện thoại"; }
                 else { nhapkhoa(); }
-            } else if (cbchucnang.SelectedIndex == 1) {
+            }
+            else if (cbchucnang.SelectedIndex == 1)
+            {
                 xemkhoa();
-            } else if (cbchucnang.SelectedIndex == 2) {
+            }
+            else if (cbchucnang.SelectedIndex == 2)
+            {
                 if (String.IsNullOrEmpty(txtmakhoa.Text)) { txtthongbao.Text = "Bạn chưa nhập mã khoa"; }
                 else { xoakhoa(); xemkhoa(); }
-            } else if (cbchucnang.SelectedIndex == 3) {
+            }
+            else if (cbchucnang.SelectedIndex == 3)
+            {
                 if (String.IsNullOrEmpty(txtmakhoa.Text)) { txtthongbao.Text = "Bạn chưa nhập mã khoa"; }
                 else if (String.IsNullOrEmpty(txttenkhoamoi.Text)) { txtthongbao.Text = "Bạn chưa nhập tên khoa mới"; }
                 else if (String.IsNullOrEmpty(txtdienthoaimoi.Text)) { txtthongbao.Text = "Bạn chưa nhập điện thoại mới"; }
                 else { capnhatkhoa(); checkkhoa(); }
-            } else if (cbchucnang.SelectedIndex == 4) {
+            }
+            else if (cbchucnang.SelectedIndex == 4)
+            {
                 if (String.IsNullOrEmpty(txtmakhoa.Text)) { txtthongbao.Text = "Bạn chưa nhập mã khoa"; }
                 else { timkhoa(); }
-            } else { txtthongbao.Text = ""; }
+            }
+            else { txtthongbao.Text = ""; }
         }
 
         private void nhapkhoa()
@@ -108,11 +140,17 @@ namespace QUANLYGIANGVIEN.Pages
             checkmakhoa.Parameters.AddWithValue("@MAKHOA", txtmakhoa.Text);
             int makhoa = (int)checkmakhoa.ExecuteScalar();
             con.Close();
-            if (makhoa > 0) {
+            if (makhoa > 0)
+            {
                 txtthongbao.Text = "Khoa Đã Tồn Tại !!!";
                 checkkhoa();
-            } else if (String.IsNullOrEmpty(txtmakhoa.Text)) { txtthongbao.Text = "Bạn chưa nhập mã khoa";
-            } else {
+            }
+            else if (String.IsNullOrEmpty(txtmakhoa.Text))
+            {
+                txtthongbao.Text = "Bạn chưa nhập mã khoa";
+            }
+            else
+            {
                 con.Open();
                 SqlCommand nhapkhoa = new SqlCommand("SP_NHAPKHOA", con);
                 nhapkhoa.CommandType = CommandType.StoredProcedure;
@@ -211,21 +249,28 @@ namespace QUANLYGIANGVIEN.Pages
 
         private void ftextbox(int a)
         {
-            if (a == 0) {
+            if (a == 0)
+            {
                 txttenkhoa.Visibility = Visibility.Hidden;
-                txtdienthoai.Visibility = Visibility.Hidden; } 
-            else if (a == 1) {
+                txtdienthoai.Visibility = Visibility.Hidden;
+            }
+            else if (a == 1)
+            {
                 txttenkhoa.Visibility = Visibility.Visible;
-                txtdienthoai.Visibility = Visibility.Visible; }
+                txtdienthoai.Visibility = Visibility.Visible;
+            }
         }
 
         private void readwritetextbox(int a)
         {
-            if (a == 1) {
+            if (a == 1)
+            {
                 txtmakhoa.IsReadOnly = false;
                 txttenkhoa.IsReadOnly = false;
                 txtdienthoai.IsReadOnly = false;
-            } else if (a == 0) {
+            }
+            else if (a == 0)
+            {
                 txtmakhoa.IsReadOnly = true;
                 txttenkhoa.IsReadOnly = true;
                 txtdienthoai.IsReadOnly = true;

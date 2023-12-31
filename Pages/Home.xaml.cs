@@ -109,7 +109,7 @@ namespace QUANLYGIANGVIEN.Pages
 
         private string getvalues(string sqlcommandline)
         {
-            SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["constr"]);
+            SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["constr"]);
             con.Open();
             SqlCommand checkvalues = new SqlCommand(sqlcommandline, con);
             int cv = (int)checkvalues.ExecuteScalar();

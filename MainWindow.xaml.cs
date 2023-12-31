@@ -25,25 +25,21 @@ namespace QUANLYGIANGVIEN
     {
         public MainWindow()
         {
-            // InitializeMaterialDesign();
             InitializeComponent();
+            this.MouseLeftButtonDown += (sender, e) => DragMove(); // di chuyển cửa sổ
             PagesNavigation.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void GotoPage(string Pages)
+        {
+            PagesNavigation.Navigate(new System.Uri(Pages, UriKind.RelativeOrAbsolute));
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            // GotoPage("Pages/CloseApp.xaml");
         }
-
-        //private void InitializeMaterialDesign()
-        //{
-        //    // Create dummy objects to force the MaterialDesign assemblies to be loaded
-        //    // from this assembly, which causes the MaterialDesign assemblies to be searched
-        //    // relative to this assembly's path. Otherwise, the MaterialDesign assemblies
-        //    // are searched relative to Eclipse's path, so they're not found.
-        //    var card = new Card();
-        //    var hue = new Hue("Dummy", Colors.Black, Colors.White);
-        //}
 
         private void btnRestore_Click(object sender, RoutedEventArgs e)
         {
@@ -58,32 +54,35 @@ namespace QUANLYGIANGVIEN
             WindowState = WindowState.Minimized;
         }
 
-
         private void rdHome_Click(object sender, RoutedEventArgs e)
         {
-           // PagesNavigation.Navigate(new HomePage());
-
-            PagesNavigation.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
+            // PagesNavigation.Navigate(new HomePage());
+            GotoPage("Pages/Home.xaml");
         }
 
-        private void rdSounds_Click(object sender, RoutedEventArgs e)
+        private void rdGiangVien_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/GiangVien.xaml", UriKind.RelativeOrAbsolute));
+            GotoPage("Pages/GiangVien.xaml");
         }
 
-        private void rdNotes_Click(object sender, RoutedEventArgs e)
+        private void rdMonHoc_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/monhoc.xaml", UriKind.RelativeOrAbsolute));
+            GotoPage("Pages/monhoc.xaml");
         }
 
-        private void rdPayment_Click(object sender, RoutedEventArgs e)
+        private void rdKhoa_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/khoa.xaml", UriKind.RelativeOrAbsolute));
+            GotoPage("Pages/khoa.xaml");
+        }
+
+        private void rdLogin_Click(object sender, RoutedEventArgs e)
+        {
+            GotoPage("Pages/khoa.xaml");
         }
 
         private void github_StackPanel(object sender, RoutedEventArgs e)
         {
-            // https://github.com/dopaemon
+            //System.Uri("https://github.com/dopaemon");
         }
     }
 }

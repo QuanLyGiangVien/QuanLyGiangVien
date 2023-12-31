@@ -1,0 +1,100 @@
+﻿<Window x:Class="QUANLYGIANGVIEN.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QUANLYGIANGVIEN"
+        mc:Ignorable="d" Name="home"
+        Height="640" Width="480"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" WindowState="Normal"
+        Title="Đăng Nhập">
+    <Border CornerRadius="12" Background="{DynamicResource PrimaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!-- Start: GridColum Left-->
+            <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,56,0,0" Grid.ColumnSpan="2">
+                <Grid x:Name="gridMenu" HorizontalAlignment="Center" Width="256">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="160"/>
+                        <RowDefinition Height="Auto" MinHeight="2"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Logo -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150">
+                        <Path Data="{DynamicResource logo}" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColor}" Width="150" Height="150" RenderTransformOrigin="0.363,0.515"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,70,0,10" HorizontalAlignment="Center" Grid.Row="3" Width="256">
+                        <TextBox x:Name="txtUsr"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                Height="52"
+                                FontSize="15"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="Tài Khoản"
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" />
+                        <Label Height="12"></Label>
+                        <PasswordBox x:Name="txtPasswd"
+                                FontSize="15"
+                                Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedPasswordFieldPasswordBoxEnabledComboBox}"
+                                materialDesign:HintAssist.Hint="Mật Khẩu" Height="51" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="3">
+                        <!--<RadioButton x:Name="rdLogin" IsChecked="True" Content="Đăng Nhập" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource login}" Click="rdLogin_Click"/>-->
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+            <!-- End: GridColum Left-->
+
+            <!-- Start: GridColumn Rigth -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Chương Trình Quản Lý Giảng Viên" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="Đăng Nhập" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,219,0,0" Grid.Row="1"/>
+                <CheckBox
+                    x:Name="TikShowPasswd"
+                    IsThreeState="False"
+                    IsChecked="False"
+                    Content="Hiển thị mật khẩu" Margin="112,401,112,119" Grid.Row="1" />
+                <Button x:Name="btnClose"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Content="Thoát"
+                    Foreground="White"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" Margin="112,466,246,82" Grid.Row="1" Click="btnClose_Click" />
+                <Button x:Name="btnLogin"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Content="Đăng Nhập"
+                    Foreground="White"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" Margin="254,466,112,82" Grid.Row="1" Click="btnLogin_Click" />
+                <TextBox x:Name="txtPasswdShowing"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    FontSize="15"
+                    Visibility="Collapsed"
+                    materialDesign:HintAssist.Hint="Mật Khẩu"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" Margin="112,352,112,177" Grid.Row="1" />
+                <Label x:Name="lblUsr" Foreground="Red" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,296,0,0" Grid.Row="1" Width="94"/>
+                <Label x:Name="lblPwd" Foreground="Red" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,360,0,0" Grid.Row="1" Width="94"/>
+            </Grid>
+            <!-- Start: GridColumn Rigth -->
+        </Grid>
+    </Border>
+</Window>

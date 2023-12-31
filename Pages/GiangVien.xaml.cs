@@ -31,55 +31,79 @@ namespace QUANLYGIANGVIEN.Pages
         public GiangVien()
         {
             InitializeComponent();
+            xemgiangvien();
             hidetextboxmoi();
             readwritetextbox(0);
             btnrun.IsEnabled = false;
         }
 
         int checkedbtn = 0;
-        SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["constr"]);
+        SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["constr"]);
 
-        private void btnc_Click(object sender, RoutedEventArgs e)
+        private void cbchucnang_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbchucnang.SelectedIndex == 0 || 
-                cbchucnang.SelectedIndex == 1 || 
-                cbchucnang.SelectedIndex == 2 || 
-                cbchucnang.SelectedIndex == 4) {
+            if (cbchucnang.SelectedIndex == 0 ||
+                cbchucnang.SelectedIndex == 1 ||
+                cbchucnang.SelectedIndex == 2 ||
+                cbchucnang.SelectedIndex == 4)
+            {
                 hidetextboxmoi();
                 ftextbox(1);
                 checkedbtn = 1;
-            } else if (cbchucnang.SelectedIndex == 3) {
+            }
+            else if (cbchucnang.SelectedIndex == 3)
+            {
                 showtextboxmoi();
                 ftextbox(0);
                 checkedbtn = 1;
-            } else { checkedbtn = 0; }
+            }
+            else { checkedbtn = 0; }
 
-            if (cbchucnang.SelectedIndex == 0) {
+            if (cbchucnang.SelectedIndex == 0)
+            {
                 readwritetextbox(1);
                 txtthongbao.Text = "Bạn đã chọn nhập giảng viên";
-            } else if (cbchucnang.SelectedIndex == 1) {
+            }
+            else if (cbchucnang.SelectedIndex == 1)
+            {
                 readwritetextbox(0);
                 txtthongbao.Text = "Bạn đã chọn xem giảng viên";
-            } else if (cbchucnang.SelectedIndex == 2) {
+            }
+            else if (cbchucnang.SelectedIndex == 2)
+            {
                 readwritetextbox(0);
                 txtmagv.IsReadOnly = false;
                 txtthongbao.Text = "Bạn đã chọn xóa giảng viên";
-            } else if (cbchucnang.SelectedIndex == 3) {
+            }
+            else if (cbchucnang.SelectedIndex == 3)
+            {
                 readwritetextbox(0);
                 txtmagv.IsReadOnly = false;
                 txtthongbao.Text = "Bạn đã chọn sửa giảng viên";
-            } else if (cbchucnang.SelectedIndex == 4) {
+            }
+            else if (cbchucnang.SelectedIndex == 4)
+            {
                 readwritetextbox(1);
                 txtthongbao.Text = "Bạn đã chọn tìm giảng viên";
-            } else if (cbchucnang.SelectedIndex == -1) {
+            }
+            else if (cbchucnang.SelectedIndex == -1)
+            {
                 txtthongbao.Text = "Bạn chưa chọn chức năng\n";
             }
 
-            if (checkedbtn == 1) { 
-                btnrun.IsEnabled = true; 
-            } else if (checkedbtn == 0) {
+            if (checkedbtn == 1)
+            {
                 btnrun.IsEnabled = true;
             }
+            else if (checkedbtn == 0)
+            {
+                btnrun.IsEnabled = true;
+            }
+        }
+
+        private void btnc_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnrun_Click(object sender, RoutedEventArgs e)
@@ -284,11 +308,6 @@ namespace QUANLYGIANGVIEN.Pages
         {
             var textBox = sender as TextBox;
             e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
-        }
-
-        private void cbchucnang_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
