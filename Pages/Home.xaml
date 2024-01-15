@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:QUANLYGIANGVIEN.Pages"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" x:Class="QUANLYGIANGVIEN.Pages.Home"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Validation.ErrorTemplate="{x:Null}"
              d:DesignHeight="570" d:DesignWidth="770">
     <Border CornerRadius="10" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
@@ -43,16 +43,24 @@
             </materialDesign:Card>
             <materialDesign:Card Margin="30,285,30,36" UniformCornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="404*"/>
+                        <ColumnDefinition Width="307*"/>
+                    </Grid.ColumnDefinitions>
 
                     <!--<Wpf:PieChart HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="229" Width="228"/>-->
-
-                    <Wpf:PieChart x:Name="QLGVCharts" Margin="0,0,355,0"/>
+                    <Wpf:PieChart x:Name="QLGVCharts" Margin="0,0,48,0"/>
 
                 </Grid>
             </materialDesign:Card>
+            <materialDesign:Chip Content="Nguyễn Hưng Thịnh - 2312756" Margin="481,356,0,182" />
+            <materialDesign:Chip VerticalAlignment="Top" Content="Nguyễn Minh Anh - 2312571" Margin="481,393,0,0" />
             <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Trường Đại Học Đà Lạt" HorizontalAlignment="Left" Margin="474,13,0,0" VerticalAlignment="Top" FontSize="24"/>
             <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Lớp: CTK47A" HorizontalAlignment="Left" Margin="607,57,0,0" VerticalAlignment="Top" FontSize="20"/>
             <Label Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" Content="Đề Tài Quản Lý Giảng Viên Nhóm 10" HorizontalAlignment="Left" Margin="385,94,0,0" VerticalAlignment="Top" FontSize="20"/>
+            <materialDesign:Chip Content="Trần Nguyễn Tuấn Anh - 2312577" Margin="481,319,0,219" />
+            <materialDesign:Chip Content="Lê Thị Mai Anh - 2312569" Margin="481,430,0,108" />
+            <materialDesign:Chip Content="Phạm Văn Hiếu - 2312615" Margin="481,467,0,71" />
         </Grid>
     </Border>
 </UserControl>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,14 @@ using System.Windows.Shapes;
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using QUANLYGIANGVIEN.Pages;
+using System.Configuration;
+// using System.Data.SqlClient;
+// using Microsoft.Data.SqlClient;
+// using System.Collections.Specialized;
+using System.IO;
+// using System.Data;
+using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace QUANLYGIANGVIEN
 {
@@ -23,6 +33,8 @@ namespace QUANLYGIANGVIEN
     /// </summary>
     public partial class MainWindow : Window
     {
+        SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["constr"]);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -83,6 +95,50 @@ namespace QUANLYGIANGVIEN
         private void github_StackPanel(object sender, RoutedEventArgs e)
         {
             //System.Uri("https://github.com/dopaemon");
+        }
+
+        private void LoginFrm()
+        {
+            Login login = new Login();
+            login.Show();
+        }
+
+        private void rdLogout_Checked(object sender, RoutedEventArgs e)
+        {
+            string magv = null;
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SP_FINDMAGV", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    int magvColumnIndex = reader.GetOrdinal("MAGV");
+                    if (!reader.IsDBNull(magvColumnIndex))
+                    {
+                        magv = reader.GetString(magvColumnIndex);
+                    }
+                }
+            }
+            con.Close();
+
+            MessageBoxResult yesno = MessageBox.Show("Bạn có muốn đăng xuất không ?", "Đăng xuất", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            bool thoat = yesno == MessageBoxResult.Yes;
+            if (thoat)
+            {
+                con.Open();
+                cmd = new SqlCommand("SP_STATUS", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAGV", magv);
+                cmd.Parameters.AddWithValue("@IS_STATUS", false);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                LoginFrm();
+
+                Close();
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:local="clr-namespace:QUANLYGIANGVIEN.Pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Validation.ErrorTemplate="{x:Null}"
       d:DesignHeight="570" d:DesignWidth="770"
       Title="Giảng Viên">
 
@@ -21,7 +21,6 @@
                         TextWrapping="Wrap"
                         MaxWidth="400"
                         materialDesign:HintAssist.Hint="Mã Giảng Viên"
-                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
                         Height="41"
                         Margin="10,10,10,0" />
 
@@ -63,17 +62,16 @@
                         TextWrapping="Wrap"
                         MaxWidth="400"
                         materialDesign:HintAssist.Hint="Mã Khoa"
-                        IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" 
                         Height="42" 
                         Margin="10,212,10,0" />
+                    
                     <TextBox x:Name="txthotenmoi"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         MaxWidth="400"
-                        materialDesign:HintAssist.Hint="Họ Và Tên Giảng Viên Mới"
-                        IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Height="41" Margin="10,57,10,0" />
+                        materialDesign:HintAssist.Hint="Họ Và Tên Giảng Viên Mới" />
                     <TextBox x:Name="txtdiachimoi"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Center"
@@ -81,7 +79,6 @@
                         TextWrapping="Wrap"
                         MaxWidth="400"
                         materialDesign:HintAssist.Hint="Địa Chỉ Thường Trú Mới"
-                        IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" 
                         Height="42" 
                         Margin="10,0,10,0" />
                     <TextBox x:Name="txtdienthoaimoi"
@@ -91,7 +88,6 @@
                         TextWrapping="Wrap"
                         MaxWidth="400"
                         materialDesign:HintAssist.Hint="Điện Thoại Mới"
-                        IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" 
                         Height="41" 
                         Margin="10,160,10,0" PreviewTextInput="txtdienthoaimoi_PreviewTextInput" />
                     <TextBox x:Name="txtmakhoamoi"
@@ -101,7 +97,6 @@
                         TextWrapping="Wrap"
                         MaxWidth="400"
                         materialDesign:HintAssist.Hint="Mã Khoa Mới"
-                        IsEnabled="{Binding ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" 
                         Height="42" 
                         Margin="10,212,10,0" />
                 </Grid>

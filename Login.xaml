@@ -9,13 +9,13 @@
         Height="640" Width="480"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         Background="Transparent" AllowsTransparency="True"
-        ResizeMode="NoResize" WindowState="Normal"
+        ResizeMode="NoResize" WindowState="Normal" Validation.ErrorTemplate="{x:Null}"
         Title="Đăng Nhập">
     <Border CornerRadius="12" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
+                <!--<ColumnDefinition Width="Auto"/>-->
             </Grid.ColumnDefinitions>
             <!-- Start: GridColum Left-->
             <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,56,0,0" Grid.ColumnSpan="2">
@@ -24,7 +24,6 @@
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="160"/>
                         <RowDefinition Height="Auto" MinHeight="2"/>
-                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <!-- Logo -->
@@ -36,16 +35,12 @@
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 Height="52"
                                 FontSize="15"
-                                AcceptsReturn="True"
-                                TextWrapping="Wrap"
                                 VerticalScrollBarVisibility="Auto"
-                                materialDesign:HintAssist.Hint="Tài Khoản"
-                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" />
+                                materialDesign:HintAssist.Hint="Tài Khoản" />
                         <Label Height="12"></Label>
                         <PasswordBox x:Name="txtPasswd"
                                 FontSize="15"
                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
-                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedPasswordFieldPasswordBoxEnabledComboBox}"
                                 materialDesign:HintAssist.Hint="Mật Khẩu" Height="51" />
                     </StackPanel>
                     <StackPanel Grid.Row="3">
@@ -65,11 +60,12 @@
 
                 <Label Content="Chương Trình Quản Lý Giảng Viên" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label Content="Đăng Nhập" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,219,0,0" Grid.Row="1"/>
-                <CheckBox
-                    x:Name="TikShowPasswd"
-                    IsThreeState="False"
+                <!--<CheckBox
+                    x:Name="chkshowpasswd"
                     IsChecked="False"
-                    Content="Hiển thị mật khẩu" Margin="112,401,112,119" Grid.Row="1" />
+                    Checked="ChkCheck"
+                    Unchecked="ChkunCheck"
+                    Content="Hiển thị mật khẩu" Margin="112,401,112,119" Grid.Row="1" />-->
                 <Button x:Name="btnClose"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
@@ -82,7 +78,7 @@
                     Content="Đăng Nhập"
                     Foreground="White"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" Margin="254,466,112,82" Grid.Row="1" Click="btnLogin_Click" />
-                <TextBox x:Name="txtPasswdShowing"
+                <!--<TextBox x:Name="txtPasswdShowing"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     FontSize="15"
                     Visibility="Collapsed"
@@ -90,7 +86,7 @@
                     AcceptsReturn="True"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" Margin="112,352,112,177" Grid.Row="1" />
+                    IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" Margin="112,352,112,177" Grid.Row="1" />-->
                 <Label x:Name="lblUsr" Foreground="Red" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,296,0,0" Grid.Row="1" Width="94"/>
                 <Label x:Name="lblPwd" Foreground="Red" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="376,360,0,0" Grid.Row="1" Width="94"/>
             </Grid>

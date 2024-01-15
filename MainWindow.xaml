@@ -9,7 +9,7 @@
         Height="650" Width="1000"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         Background="Transparent" AllowsTransparency="True"
-        ResizeMode="NoResize" WindowState="Normal"
+        ResizeMode="NoResize" WindowState="Normal" Validation.ErrorTemplate="{x:Null}"
         Title="Phần Mềm Quản Lý Giảng Viên">
     <Border CornerRadius="12" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
@@ -38,7 +38,7 @@
                         <RadioButton x:Name="rdGiangVien" Content="Giảng Viên" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource giangvien}" Margin="0 5 0 5" Click="rdGiangVien_Click"/>
                         <RadioButton x:Name="rdMonHoc" Content="Môn Học" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource mon}" Click="rdMonHoc_Click"/>
                         <RadioButton x:Name="rdKhoa" Content="Khoa" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource khoa}" Margin="0 5 0 5" Click="rdKhoa_Click"/>
-                        <!--<RadioButton x:Name="rdLogin" IsChecked="True" Content="Đăng Nhập" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource login}" Click="rdLogin_Click"/>-->
+                        <RadioButton x:Name="rdLogout" Content="Đăng Xuất" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource login}" Click="rdLogout_Checked"/>
                     </StackPanel>
 
                     <StackPanel x:Name="github" Grid.Row="3" VerticalAlignment="Top" Orientation="Horizontal" Margin="45,470,44,0">

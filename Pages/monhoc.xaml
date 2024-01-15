@@ -86,13 +86,11 @@
             <materialDesign:Card Margin="10,10,385,294" UniformCornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}">
                 <Grid Margin="3,0,-3,0">
                     <ComboBox x:Name="cbchucnang"
-                              FontWeight="DemiBold"
-                              materialDesign:HintAssist.Hint="Chức năng: "
-                              Margin="27,22,129,215"
-                              FontStyle="Normal"
-                              FontSize="10" 
-                              materialDesign:TextFieldAssist.HasClearButton="True" 
-                              SelectionChanged="cbchucnang_SelectionChanged">
+                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                      FontSize="15"
+                      materialDesign:HintAssist.Hint="Chức Năng"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      Width="256" Margin="10,10,109,205">
                         <ComboBox.SelectedItem>
                             <Binding
                                   Path="SelectedValidationOutlined"
@@ -106,12 +104,7 @@
                         <ComboBoxItem Content="Sửa môn học"/>
                         <ComboBoxItem Content="Tìm môn học"/>
                     </ComboBox>
-                    <Button x:Name="btnrun"
-                         Style="{StaticResource MaterialDesignPaperLightButton}"
-                         ToolTip="Resource name: MaterialDesignPaperLightButton"
-                         Content="Bắt Đầu"
-                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="260,19,23,215" />
-                    <!--<Grid Margin="253,12,-1,206">
+                    <Grid Margin="253,12,-1,206">
                         <materialDesign:Badged
                                 Badge="{materialDesign:PackIcon Heart}"
                                 BadgeColorZoneMode="SecondaryMid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" RenderTransformOrigin="0.487,0.2">
@@ -122,50 +115,30 @@
                                     Width="88"
                                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="30" Click="btnrun_Click" />
                         </materialDesign:Badged>
-                    </Grid>-->
-                    <!--
+                    </Grid>
                     <GroupBox
                             Header="Log"
-                            Style="{DynamicResource MaterialDesignGroupBox}"
-                            materialDesign:ColorZoneAssist.Mode="Custom"
-                            materialDesign:ColorZoneAssist.Background="{DynamicResource PrimaryBlueColor}"
-                            materialDesign:ColorZoneAssist.Foreground="White"
                             Margin="10,66,16,10">
                         <TextBlock x:Name="txtthongbao"
                             FontSize="15"
                             Text="" />
                     </GroupBox>
-                    -->
-                    <StackPanel Margin="10,66,10,10">
-                        <CheckBox
-                            x:Name="MaterialDesignOutlinedTextBoxEnabledComboBox"
-                            Content="Enabled" Height="41" Width="325" />
-                        <TextBox x:Name="txtthongbao"
-                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                            Height="129"
-                            IsReadOnly="True"
-                            AcceptsReturn="True"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="Log"
-                            IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" Width="322" />
-                    </StackPanel>
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card Margin="10,294,10,10" UniformCornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}">
-                <StackPanel>
-                    <Label Content="Môn Học"
-                           HorizontalAlignment="Center"
-                           FontSize="15" />
-                    <Grid>
+                <Grid>
+                    <StackPanel>
+                        <Label Content="Môn học"
+                               HorizontalAlignment="Center"
+                               FontSize="15" />
                         <DataGrid x:Name="dtgrmonhoc"
                           IsReadOnly="True"
                           materialDesign:DataGridAssist.CornerRadius="10"
                           CanUserAddRows="False"
                           SelectionUnit="Cell"
                           SelectionMode="Extended" />
-                    </Grid>
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
             </materialDesign:Card>
         </Grid>
     </Border>
