@@ -2,7 +2,7 @@
 * Ngôn ngữ: C#
 * Framework: WPF
 ## OpenSource
-* [**MIT**](https://github.com/CTK47-5-1/QUANLYGIANGVIEN/blob/source/LICENSE)
+* [**MIT**](https://github.com/QuanLyGiangVien/QuanLyGiangVien/blob/master/LICENSE)
 ## Chức năng
 ```feature
 Chức năng chính: 
