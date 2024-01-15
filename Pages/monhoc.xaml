@@ -90,7 +90,7 @@
                       FontSize="15"
                       materialDesign:HintAssist.Hint="Chức Năng"
                       materialDesign:TextFieldAssist.HasClearButton="True"
-                      Width="256" Margin="10,10,109,205">
+                      Width="256" Margin="10,10,109,205" SelectionChanged="cbchucnang_SelectionChanged">
                         <ComboBox.SelectedItem>
                             <Binding
                                   Path="SelectedValidationOutlined"
@@ -113,7 +113,7 @@
                                     ToolTip="Thực thi nhiệm vụ đã nhận từ menu"
                                     Content="Bắt Đầu"
                                     Width="88"
-                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="30" Click="btnrun_Click" />
+                                    Height="30" Click="btnrun_Click" />
                         </materialDesign:Badged>
                     </Grid>
                     <GroupBox

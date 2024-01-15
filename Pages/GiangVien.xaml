@@ -64,14 +64,14 @@
                         materialDesign:HintAssist.Hint="Mã Khoa"
                         Height="42" 
                         Margin="10,212,10,0" />
-                    
+
                     <TextBox x:Name="txthotenmoi"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         MaxWidth="400"
-                        materialDesign:HintAssist.Hint="Họ Và Tên Giảng Viên Mới" />
+                        materialDesign:HintAssist.Hint="Họ Và Tên Giảng Viên Mới" Margin="10,57,10,0" Height="41" />
                     <TextBox x:Name="txtdiachimoi"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Center"
